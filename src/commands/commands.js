@@ -18,6 +18,7 @@ async function showAlert(event) {
       body: JSON.stringify({
         title: "New Product",
         price: 29.99,
+        emailData: Office.context.mailbox.item,
       }),
     });
     console.log("POST Response status:", response.status);
