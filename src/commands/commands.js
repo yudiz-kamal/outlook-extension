@@ -7,7 +7,13 @@ Office.onReady(() => {
 async function showAlert(event) {
   try {
     console.log("Button clicked! Calling POST to fakestoreapi...");
-    console.log("Office:", await Office.context);
+    console.log("subject:", Office.context.mailbox.item.subject);
+    console.log("body:", Office.context.mailbox.item.body);
+    console.log("from:", Office.context.mailbox.item.from);
+    console.log("to:", Office.context.mailbox.item.to);
+    console.log("cc:", Office.context.mailbox.item.cc);
+    console.log("bcc:", Office.context.mailbox.item.bcc);
+    console.log("date:", Office.context.mailbox.item.date);
 
     const apiEndpoint = "https://fakestoreapi.com/products";
     const response = await fetch(apiEndpoint, {
