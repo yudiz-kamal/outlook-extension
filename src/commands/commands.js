@@ -4,76 +4,12 @@ Office.onReady(() => {
   console.log("Office.js is ready!");
 });
 
-function simplifyRecipient(recipient) {
-  if (!recipient) {
-    return null;
-  }
-  return {
-    displayName: recipient.displayName,
-    emailAddress: recipient.emailAddress,
-    recipientType: recipient.recipientType,
-  };
-}
-
-function simplifyRecipientList(list) {
-  if (!Array.isArray(list)) {
-    return [];
-  }
-  return list.map(simplifyRecipient);
-}
-
-function getBodyText() {
-  const item = Office.context.mailbox.item;
-  return new Promise((resolve, reject) => {
-    if (!item?.body?.getAsync) {
-      resolve("");
-      return;
-    }
-
-    item.body.getAsync(Office.CoercionType.Text, (asyncResult) => {
-      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        resolve(asyncResult.value);
-      } else {
-        reject(asyncResult.error);
-      }
-    });
-  });
-}
-
-async function getItemSnapshot() {
-  const item = Office.context.mailbox.item;
-  if (!item) {
-    return null;
-  }
-
-  const snapshot = {
-    subject: item.subject,
-    itemClass: item.itemClass,
-    itemId: item.itemId,
-    dateTimeCreated: item.dateTimeCreated,
-    dateTimeModified: item.dateTimeModified,
-    from: simplifyRecipient(item.from),
-    to: simplifyRecipientList(item.to),
-    cc: simplifyRecipientList(item.cc),
-    bcc: simplifyRecipientList(item.bcc),
-  };
-
-  try {
-    snapshot.body = await getBodyText();
-  } catch (error) {
-    console.warn("Unable to read item body as text:", error);
-    snapshot.body = "";
-  }
-
-  return snapshot;
-}
-
 async function showAlert(event) {
   try {
     console.log("Button clicked! Calling POST to fakestoreapi...");
-    const emailData = await getItemSnapshot();
-    console.log("Email snapshot:", emailData);
-
+    console.log("emailData:");
+    console.dir(Office.context.mailbox.item, { depth: Infinity });
+    
     const apiEndpoint = "https://fakestoreapi.com/products";
     const response = await fetch(apiEndpoint, {
       method: "POST",
@@ -82,8 +18,7 @@ async function showAlert(event) {
       },
       body: JSON.stringify({
         title: "New Product",
-        price: 29.99,
-        emailData,
+        price: 29.99
       }),
     });
     console.log("POST Response status:", response.status);
