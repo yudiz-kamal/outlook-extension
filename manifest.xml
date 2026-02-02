@@ -12,12 +12,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="My Custom Button"/>
   <Description DefaultValue="Custom button to show alert"/>
-  <IconUrl DefaultValue="https://silly-puppy-9c0a8a.netlify.app/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://silly-puppy-9c0a8a.netlify.app/assets/icon-80.png"/>
+  <IconUrl DefaultValue="https://outlook-extension.netlify.app/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://outlook-extension.netlify.app/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
     <AppDomain>https://www.contoso.com</AppDomain>
-    <AppDomain>https://silly-puppy-9c0a8a.netlify.app</AppDomain>
+    <AppDomain>https://outlook-extension.netlify.app</AppDomain>
   </AppDomains>
   
   <Hosts>
@@ -33,7 +33,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://silly-puppy-9c0a8a.netlify.app/taskpane.html"/>
+        <SourceLocation DefaultValue="https://outlook-extension.netlify.app/taskpane.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -90,12 +90,12 @@
     
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://silly-puppy-9c0a8a.netlify.app/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://silly-puppy-9c0a8a.netlify.app/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://silly-puppy-9c0a8a.netlify.app/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://outlook-extension.netlify.app/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://outlook-extension.netlify.app/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://outlook-extension.netlify.app/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://silly-puppy-9c0a8a.netlify.app/commands.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://outlook-extension.netlify.app/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="My Add-in"/>
