@@ -70,10 +70,10 @@ async function getItemSnapshot() {
 
 async function showAlert(event) {
   try {
+    var x;
+    x = Office.context.mailbox.item;
     console.log("Button clicked! Calling POST to fakestoreapi...");
-    const emailData = Office.context.mailbox.item;
-    console.log("emailData:");
-    console.dir(emailData, { depth: Infinity });
+    console.log("emailData:", x);
 
     const apiEndpoint = "https://fakestoreapi.com/products";
     const response = await fetch(apiEndpoint, {
