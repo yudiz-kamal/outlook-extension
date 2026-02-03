@@ -10,8 +10,8 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Your Company Name</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="My Custom Button"/>
-  <Description DefaultValue="Custom button to show alert"/>
+  <DisplayName DefaultValue="Report Event"/>
+  <Description DefaultValue="Custom button to report an event"/>
   <IconUrl DefaultValue="https://outlook-extension.netlify.app/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://outlook-extension.netlify.app/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
@@ -99,10 +99,10 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="My Add-in"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Alert"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Report Event"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to show an alert box"/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to report an event"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

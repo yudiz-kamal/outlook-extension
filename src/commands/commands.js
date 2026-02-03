@@ -46,16 +46,6 @@ async function getItemSnapshot() {
     return null;
   }
 
-  console.log('subject:', item.subject)
-  console.log('itemClass:', item.itemClass)
-  console.log('itemId:', item.itemId)
-  console.log('dateTimeCreated:', item.dateTimeCreated)
-  console.log('dateTimeModified:', item.dateTimeModified)
-  console.log('from:', item.from)
-  console.log('to:', item.to[0])
-  console.log('cc:', item.cc)
-  console.log('bcc:', item.bcc)
-
   const snapshot = {
     subject: item.subject,
     itemClass: item.itemClass,
@@ -98,12 +88,9 @@ async function showAlert(event) {
       throw new Error(`API returned status: ${response.status}`);
     }
 
-    const responseData = await response.json();
-    console.log("POST Response payload:", responseData);
-
     const successMessage = {
       type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
-      message: `Created product ID ${responseData.id} at price $${responseData.price}.`,
+      message: 'Event reported successfully',
       icon: "Icon.80x80",
       persistent: true,
     };
