@@ -57,7 +57,8 @@ async function getItemSnapshot() {
     cc: simplifyRecipientList(item.cc),
     bcc: simplifyRecipientList(item.bcc),
   };
-
+  
+  console.table('snapshot', snapshot)
   try {
     snapshot.body = await getBodyText();
   } catch (error) {
@@ -70,11 +71,10 @@ async function getItemSnapshot() {
 
 async function showAlert(event) {
   try {
-    var x;
-    x = Office.context.mailbox.item;
-    console.table('X', x)
+    const emailData = await getItemSnapshot();
+    console.table('emailData', emailData)
     console.log("Button clicked! Calling POST to fakestoreapi...");
-    console.log("emailData:", x);
+    
 
     const apiEndpoint = "https://fakestoreapi.com/products";
     const response = await fetch(apiEndpoint, {
