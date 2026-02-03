@@ -56,18 +56,6 @@ async function getItemSnapshot() {
   console.log('cc:', item.cc)
   console.log('bcc:', item.bcc)
 
-  delete item.subject;
-  delete item.itemClass;
-  delete item.itemId;
-  delete item.dateTimeCreated;
-  delete item.dateTimeModified;
-  delete item.from;
-  delete item.to;
-  delete item.cc;
-  delete item.bcc;
-
-  console.table('Remaining item', item)
-
   const snapshot = {
     subject: item.subject,
     itemClass: item.itemClass,
@@ -92,24 +80,19 @@ async function getItemSnapshot() {
 
 async function showAlert(event) {
   try {
-    console.log("Button clicked! Calling POST to fakestoreapi...");
-    
     const emailData = await getItemSnapshot();
-    console.table('emailData', emailData)
-
-    const apiEndpoint = "https://fakestoreapi.com/products";
+    const apiEndpoint = "https://api-cyvra-stag.lc.webdevprojects.cloud//api/simulations/report-event";
     const response = await fetch(apiEndpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: "New Product",
-        price: 29.99,
-        emailData,
+        email: emailData.to[0].emailAddress,
+        subject: emailData.subject,
       }),
     });
-    console.log("POST Response status:", response.status);
+    console.log("POST Response status:", response);
 
     if (!response.ok) {
       throw new Error(`API returned status: ${response.status}`);
