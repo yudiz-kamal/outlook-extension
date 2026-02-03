@@ -72,6 +72,7 @@ async function showAlert(event) {
   try {
     var x;
     x = Office.context.mailbox.item;
+    console.table('X', x)
     console.log("Button clicked! Calling POST to fakestoreapi...");
     console.log("emailData:", x);
 
