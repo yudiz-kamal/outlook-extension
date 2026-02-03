@@ -46,6 +46,28 @@ async function getItemSnapshot() {
     return null;
   }
 
+  console.log('subject:', item.subject)
+  console.log('itemClass:', item.itemClass)
+  console.log('itemId:', item.itemId)
+  console.log('dateTimeCreated:', item.dateTimeCreated)
+  console.log('dateTimeModified:', item.dateTimeModified)
+  console.log('from:', item.from)
+  console.log('to:', item.to)
+  console.log('cc:', item.cc)
+  console.log('bcc:', item.bcc)
+
+  delete item.subject;
+  delete item.itemClass;
+  delete item.itemId;
+  delete item.dateTimeCreated;
+  delete item.dateTimeModified;
+  delete item.from;
+  delete item.to;
+  delete item.cc;
+  delete item.bcc;
+
+  console.table('Remaining item', item)
+
   const snapshot = {
     subject: item.subject,
     itemClass: item.itemClass,
@@ -57,8 +79,7 @@ async function getItemSnapshot() {
     cc: simplifyRecipientList(item.cc),
     bcc: simplifyRecipientList(item.bcc),
   };
-  
-  console.table('snapshot', snapshot)
+
   try {
     snapshot.body = await getBodyText();
   } catch (error) {
@@ -71,10 +92,10 @@ async function getItemSnapshot() {
 
 async function showAlert(event) {
   try {
-    const emailData = await getItemSnapshot();
-    console.table('emailData', emailData)
     console.log("Button clicked! Calling POST to fakestoreapi...");
     
+    const emailData = await getItemSnapshot();
+    console.table('emailData', emailData)
 
     const apiEndpoint = "https://fakestoreapi.com/products";
     const response = await fetch(apiEndpoint, {
