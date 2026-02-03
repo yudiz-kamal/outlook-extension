@@ -52,7 +52,7 @@ async function getItemSnapshot() {
   console.log('dateTimeCreated:', item.dateTimeCreated)
   console.log('dateTimeModified:', item.dateTimeModified)
   console.log('from:', item.from)
-  console.log('to:', item.to)
+  console.log('to:', item.to[0])
   console.log('cc:', item.cc)
   console.log('bcc:', item.bcc)
 
