@@ -11,7 +11,7 @@
   <ProviderName>Your Company Name</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Report Event"/>
-  <Description DefaultValue="Custom button to report an event"/>
+  <Description DefaultValue="Report an event"/>
   <IconUrl DefaultValue="https://outlook-extension.netlify.app/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://outlook-extension.netlify.app/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
